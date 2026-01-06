@@ -4,7 +4,7 @@
   "description": "Minimal OP_NET builder starter using GitHub Actions",
   "type": "module",
   "scripts": {
-    "start": "ts-node src/op20-interact.ts"
+    "start": "node --loader ts-node/esm src/op20-interact.ts"
   },
   "dependencies": {
     "opnet": "*",
