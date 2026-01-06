@@ -13,7 +13,7 @@
     "@scure/bip39": "^1.x.x",
     "@scure/bip32": "^1.x.x",
     "@noble/secp256k1": "^2.x.x",
-    "ecpair": "^6.0.0",
+    "ecpair": "^3.0.0",
 "tiny-secp256k1": "^1.2.0"
   },
   "devDependencies": {
