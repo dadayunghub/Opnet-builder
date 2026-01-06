@@ -1,13 +1,13 @@
 import {
   getContract,
-  IOP20Contract,
+  IOP_20Contract,
   JSONRpcProvider,
   OP_20_ABI,
   TransactionParameters,
 } from 'opnet';
 
 //import { Configs } from 'Configs.ts';
-import { Configs } from 'wallet.ts';
+import { Configs } from './wallet';
 import { Address, Wallet } from '@btc-vision/transaction';
 import { Network } from '@btc-vision/bitcoin';
 

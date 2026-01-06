@@ -1,6 +1,7 @@
 import * as bip39 from '@scure/bip39';
 import { HDKey } from '@scure/bip32';
 import * as secp from '@noble/secp256k1';
+import { Network } from '@btc-vision/bitcoin';
 
 const mnemonic = process.env.OP_WALLET_MNEMONIC;
 
@@ -21,5 +22,8 @@ if (!child.privateKey) {
 
 const privateKey = child.privateKey;
 const publicKey = secp.getPublicKey(privateKey, true); // x-only compatible
-export const Configs = publicKey;
+export const Configs = {
+  NETWORK: Network.REGTEST,
+  WALLET: publicKey,
+};
 
