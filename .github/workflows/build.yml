@@ -1,0 +1,43 @@
+name: OP_NET Build Artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-opnet:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout your workflow repo (needed to store artifact)
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      # 3️⃣ Clone OP_NET official repo
+      - name: Clone OP_NET repo
+        run: git clone https://github.com/btc-vision/opnet.git opnet-sdk
+
+      # 4️⃣ Install OP_NET dependencies
+      - name: Install OP_NET dependencies
+        run: |
+          cd opnet-sdk
+          npm install
+
+      # 5️⃣ Build OP_NET SDK
+      - name: Build OP_NET SDK
+        run: |
+          cd opnet-sdk
+          npm run build
+
+      # 6️⃣ Upload build folder as artifact
+      - name: Upload OP_NET build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: opnet-build
+          path: opnet-sdk/build
