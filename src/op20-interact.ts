@@ -7,7 +7,7 @@ import {
 } from 'opnet';
 
 //import { Configs } from 'Configs.ts';
-import { Configs } from './wallet';
+import { Configs } from './Configs';
 import { Address, Wallet } from '@btc-vision/transaction';
 import { Network } from '@btc-vision/bitcoin';
 
@@ -23,7 +23,7 @@ async function main() {
   const CONTRACT_ADDRESS = "bcrt1plz0svv3wl05qrrv0dx8hvh5mgqc7jf3mhqgtw8jnj3l3d3cs6lzsfc3mxh";
 
   // 4️⃣ Get contract instance
-  const example: OP_20Contract = getContract<OP_20Contract>(
+  const example: IOP_20Contract = getContract<IOP_20Contract>(
     CONTRACT_ADDRESS,
     OP_20_ABI,
     provider,
