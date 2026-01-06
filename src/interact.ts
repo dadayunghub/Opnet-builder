@@ -5,6 +5,7 @@ import {
 } from 'opnet';
 
 import { Configs } from './Configs2';
+import { MinimalOP20 } from './MinimalOP20';
 
 // provider (string network)
 const provider = new JSONRpcProvider(
@@ -24,12 +25,17 @@ async function main() {
     provider,
     'regtest' as any,
     yourAddress
-  );
+  ) as unknown as MinimalOP20;
 
+  // Read data
+  const name = await example.name();
+  console.log('Name:', name.properties.name);
+
+  // Transfer
   const transferSimulation = await example.transfer(yourAddress, 10000n);
 
   const tx = await transferSimulation.sendTransaction({
-    signer: Configs.SIGNER,      // ✅ ECPairInterface
+    signer: Configs.SIGNER,
     refundTo: yourAddress.toString(),
     maximumAllowedSatToSpend: 5000n,
     feeRate: 10,
