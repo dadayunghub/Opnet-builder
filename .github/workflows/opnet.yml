@@ -1,0 +1,28 @@
+name: OP_NET Builder Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *" # runs every 6 hours (optional but good)
+
+jobs:
+  run-opnet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run OP_NET interaction
+        env:
+          OP_WALLET_MNEMONIC: ${{ secrets.OP_WALLET_MNEMONIC }}
+        run: npm run start
