@@ -4,13 +4,12 @@
   "description": "Minimal OP_NET builder starter using GitHub Actions",
   "type": "module",
   "scripts": {
-    "build": "tsc",
     "start": "ts-node src/op20-interact.ts"
   },
   "dependencies": {
-    "opnet": "^0.2.0",
-    "@btc-vision/bitcoin": "^0.1.0",
-    "@btc-vision/transaction": "^0.1.0"
+    "opnet": "*",
+    "@btc-vision/bitcoin": "*",
+    "@btc-vision/transaction": "*"
   },
   "devDependencies": {
     "typescript": "^5.3.3",
