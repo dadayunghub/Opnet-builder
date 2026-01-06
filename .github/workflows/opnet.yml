@@ -20,9 +20,13 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+          run: npm install
 
-      - name: Run OP_NET interaction
-        env:
-          OP_WALLET_MNEMONIC: ${{ secrets.OP_WALLET_MNEMONIC }}
-        run: npm run start
+      - name: Build TypeScript
+          run: npm run build
+
+      - name: Run OP_NET         interaction
+      env:
+        OP_WALLET_MNEMONIC: ${{ secrets.OP_WALLET_MNEMONIC }}
+      run: npm run start
+
