@@ -4,7 +4,7 @@ import {
   OP_20_ABI,
 } from 'opnet';
 
-import { Configs } from './Configs2';
+import { Configs } from './Configs';
 import { MinimalOP20 } from './MinimalOP20';
 
 // provider (string network)
