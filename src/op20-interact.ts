@@ -6,7 +6,8 @@ import {
   TransactionParameters,
 } from 'opnet';
 
-import { Configs } from 'wallet.js';
+//import { Configs } from 'Configs.ts';
+import { Configs } from 'wallet.ts';
 import { Address, Wallet } from '@btc-vision/transaction';
 import { Network } from '@btc-vision/bitcoin';
 

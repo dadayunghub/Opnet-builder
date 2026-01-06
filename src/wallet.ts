@@ -11,4 +11,4 @@ if (!mnemonic) {
 const seed = await bip39.mnemonicToSeed(mnemonic);
 
 // 2. Create wallet from seed
-export const Configs = Wallet.fromSeed(seed);
+export const Config = Wallet.fromSeed(seed);
