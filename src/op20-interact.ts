@@ -1,22 +1,20 @@
 import {
   getContract,
-  OP_20_ABI,
-  IOP_20Contract,
+  IOP20Contract,
   JSONRpcProvider,
-  TransactionParameters
+  OP_20_ABI,
+  TransactionParameters,
 } from 'opnet';
-import { Wallet, Address } from '@btc-vision/transaction';
 
-// 1️⃣ Wallet setup
-const mnemonic = process.env.OP_WALLET_MNEMONIC;
-if (!mnemonic) throw new Error("Missing OP_WALLET_MNEMONIC env variable");
+import { Configs } from 'wallet.js';
+import { Address, Wallet } from '@btc-vision/transaction';
+import { Network } from '@btc-vision/bitcoin';
 
-const wallet = Wallet.fromSeed(mnemonic); // correct method
-const yourAddress = new Address(wallet.keypair.publicKey);
 
-// 2️⃣ Network & provider
-const NETWORK = "regtest"; // string literal for regtest
-const provider = new JSONRpcProvider("https://regtest.opnet.org", NETWORK);
+const network: Network = Configs.NETWORK;
+const provider: JSONRpcProvider = new JSONRpcProvider('https://regtest.opnet.org', network);
+const wallet: Wallet = Configs.WALLET;
+const yourAddress: Address = new Address(wallet.keypair.publicKey);
 
 // 3️⃣ Main async function
 async function main() {
@@ -28,8 +26,8 @@ async function main() {
     CONTRACT_ADDRESS,
     OP_20_ABI,
     provider,
-    NETWORK,
-    yourAddress
+    Configs.NETWORK,
+    yourAddress,
   );
 
   // 5️⃣ Read basic info
