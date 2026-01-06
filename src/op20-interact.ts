@@ -1,7 +1,7 @@
 import {
   getContract,
   OP_20_ABI,
-  OP_20Contract,
+  IOP_20Contract,
   JSONRpcProvider,
   TransactionParameters
 } from 'opnet';
