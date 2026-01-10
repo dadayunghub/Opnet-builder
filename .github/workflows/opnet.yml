@@ -2,8 +2,7 @@ name: OP_NET Builder Run
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 */6 * * *" # runs every 6 hours (optional but good)
+    
 
 jobs:
   run-opnet:
